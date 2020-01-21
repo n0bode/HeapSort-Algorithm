@@ -53,7 +53,7 @@
       const endColor = new Color(255, 0, 0);
 			const startColor = new Color(0, 255, 0);
 
-			const MAX_VALUE = 32;
+			const MAX_VALUE = 64;
 
       function changeSpeed(speed){
         if (isNaN(speed))
@@ -62,6 +62,7 @@
         console.log(time);
       }
 
+      //Create um random unsort array
 			function genArr(n){
         let arr = [];
 
@@ -106,12 +107,12 @@
         ctx.clearRect(0, mX * 2.5, canvas.offsetWidth, canvas.offsetHeight);
 				for(var xi = 0; xi < arr.length; xi++){
 					var yi = arr[xi];
-					var x = parseInt((xi / arr.length) * (canvas.offsetWidth) / mX) * mX + mX / 2;
-					var y = offsetY + (yi / MAX_VALUE) * (canvas.offsetHeight - mX * 4);
+					var x = parseInt((xi / arr.length) * (canvas.offsetWidth) / mX) * mX + (mX / 4);
+					var y = (1 - (yi + 1) / MAX_VALUE) * (canvas.offsetHeight - offsetY);
 					
 					ctx.fillStyle = startColor.lerp(endColor, (yi / MAX_VALUE)).str(); 
 					ctx.beginPath();
-					ctx.arc(x, y, mX / 4, 0, Math.PI * 2);
+					ctx.fillRect(x, y + offsetY, mX / 2, (canvas.offsetHeight - offsetY) - y);
 					ctx.fill();
 				}
       }
