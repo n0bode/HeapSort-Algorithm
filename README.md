@@ -1,6 +1,7 @@
-# HeadSort-Algorithm
-Headsort algorithm respresentation view in canvas/js with golang as webserver
+# HeapSort-Algorithm
+Heapsort algorithm respresentation view in canvas/js with golang as webserver
 
+[About Heapsort](https://www.geeksforgeeks.org/heap-sort/)
 # How to run it
 You just need to golang installed, so you can do it:
 
